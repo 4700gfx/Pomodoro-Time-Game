@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="global-classes.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=VT323&display=swap" rel="stylesheet">
+<title>Promodoro Game</title>
+</head>
+<body>
+  <!-- Score Dashboard -->
+  <div class="game-title">Promodoro Game Timer</div>
+
+  <header>
+    <nav>
+      <ul class="score-nav">
+        <li>Score: <span id="main-score">0500</span></li>
+        <li>Time: 15:00:00</li>
+        <li>Session #1</li>
+      </ul>
+    </nav>
+    <div class="status-bar"> 💼 Keep On Working 💼 </div>
+    <button>Reset Button</button>
+  </header>
+
+  <!-- Button Section -->
+
+  <section class="button-console">
+
+    <button>Long Session</button>
+    <button>Short Session</button>
+    <button>Long Break</button>
+    <button>Short Break</button>
+
+  </section>
+
+  <!-- Timer Section -->
+
+  <section class="countdown-section">
+
+    <div class="countdown-container">
+      <div class="countdown-circle"></div>
+      <div class="countdown-progress" id="countdown-progress"></div>
+      <div class="countdown-text" id="countdown-text">15:00</div>
+    </div>
+
+    
+  </section>
+  
+  <div class="button-console">
+    <button class="play-button">Play</button>
+    <button>Pause</button>
+  </div>
+
+
+  <section class="task-section">
+    <div class="task-display">
+      <h1 class="task-title"> Task List</h1>
+      <ul>
+        <li><i>Schedule Appointments for The Week</i></li>
+        <li><i>Check Checking and Saving Accounts</i></li>
+        <li><i>Create New Study Plan</i></li>
+        <li><i>Finish Section 10 of JavaScript Course</i></li>
+        <li><i>Start on New Project for Portfolio</i></li>
+        <li><i>Create Documents for New Relauch</i></li>
+        <li><i>Update LinkedIn Profile</i></li>
+        <li><i>Continue Working on New Website</i></li>
+      </ul>
+    </div>
+  </section>
+
+
+  <script src="script.js"></script>
+</body>
+</html>

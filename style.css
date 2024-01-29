@@ -1,0 +1,36 @@
+/* Global Tag Style Sheet  */
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  background-color: rgba(134, 9, 34);
+  color: white;
+}
+
+header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 24px;
+  font-family: 'VT323', monospace;
+  padding: 30px 10%;
+}
+
+header button{
+  font: inherit;
+  border: none;
+  border-radius: 10px;
+  background-color: rgba(236, 172, 177, 0.5);
+  padding: 9px 20px;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+  width: 200px;
+}
+
+header button:hover{
+  background-color: rgba(236, 172, 177, 0.8);
+}
