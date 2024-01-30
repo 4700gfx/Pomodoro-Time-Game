@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=VT323&display=swap" rel="stylesheet">
-<title>Promodoro Game</title>
+<title>Promodoro Timer Game</title>
 </head>
 <body>
   <!-- Score Dashboard -->
@@ -23,7 +23,7 @@
       </ul>
     </nav>
     <div class="status-bar"> 💼 Keep On Working 💼 </div>
-    <button>Reset Button</button>
+    <button class="reset-button">Reset Button</button>
   </header>
 
   <!-- Button Section -->
@@ -39,21 +39,34 @@
 
   <!-- Timer Section -->
 
-  <section class="countdown-section">
-
-    <div class="countdown-container">
-      <div class="countdown-circle"></div>
-      <div class="countdown-progress" id="countdown-progress"></div>
-      <div class="countdown-text" id="countdown-text">15:00</div>
+  <section class="countdown-timer-section">
+    <div class="main-container center">
+      <div class="circle-container center">
+        <div class="semicircle"></div>
+        <div class="semicircle"></div>
+        <div class="semicircle"></div>
+        <div class="outermost-circle"></div>
+      </div>
+      <div class="timer-container center">
+        <div class="timer-display center">
+          <div class="hour">00</div>:
+          <div class="mintue">00</div>:
+          <div class="second">00</div>
+        </div>
+      </div>
     </div>
-
-    
   </section>
+
+
   
   <div class="button-console">
     <button class="play-button">Play</button>
     <button>Pause</button>
   </div>
+
+
+
+  <!-- To Do List Section -->
 
 
   <section class="task-section">
@@ -70,9 +83,16 @@
         <li><i>Continue Working on New Website</i></li>
       </ul>
     </div>
+
+    <div class="button-console">
+      <button>Add New Task</button>
+      <button>Change Task Priority</button>
+      <button>Delete New Task</button>
+    </div>
+
   </section>
 
 
   <script src="script.js"></script>
 </body>
-</html>
+</html>25px;
