@@ -30,12 +30,19 @@ const futureTime = setTime + startTime;
 
 
 //Countdown Timer Func. 
+
+
+
+
+
 const countdownTimer = function (){
   
   const currentTime = Date.now();
   const remainingTime = futureTime - currentTime;
   const currentAngle = (remainingTime/setTime) * 360;
   
+
+
   
   //Progress Indicator
   if(currentAngle > 180){
@@ -55,6 +62,7 @@ const countdownTimer = function (){
   const mins = Math.floor((remainingTime / (1000 * 60)) % 60);
   const secs = Math.floor((remainingTime / 1000) % 60);
  
+  //Dymanically Typing The Time
   hourEL.innerHTML = `${hrs}`
   minuteEL.innerHTML = `${mins}`
   secondEL.innerHTML = `${secs}`
@@ -72,6 +80,7 @@ const countdownTimer = function (){
     semicircleElement[1].style.display = 'none';
     semicircleElement[2].style.display = 'none';
     timeDisplayColor.style.backgroundColor = 'rgba(49, 87, 44)' //Changes Timer Display to Green
+    document.body.style.backgroundColor = 'rgba(127, 149, 75)' //Changes Timer Background Color to Green
 
   }
 
