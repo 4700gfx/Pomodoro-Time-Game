@@ -40,8 +40,8 @@ Functions:
 The Most Viable Product will have to function properly enough to display different game and program logic for the app. 
 
 - Timer [Create a Timer With Session Icons]
-- Top Buttons [Long Break, Short Break, Long Session, Short Session]
-- Status Bar [Provide Status Based on Time]
+- Top Buttons [Long Break, Short Break, Long Session, Short Session](Done)
+- Status Bar [Provide Status Based on Time](Done)
 - Play and Stop Buttons 
 - To Do Section 
   -Create Carousel

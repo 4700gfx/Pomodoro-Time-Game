@@ -20,6 +20,7 @@ const hr = 0;
 const min = 0;
 const sec = 10;
 
+//Time Conversion Variables
 const hours = hr * 3600000;
 const mintues = min * 60000;
 const seconds = sec * 1000;
@@ -30,10 +31,6 @@ const futureTime = setTime + startTime;
 
 
 //Countdown Timer Func. 
-
-
-
-
 
 const countdownTimer = function (){
   
@@ -63,9 +60,9 @@ const countdownTimer = function (){
   const secs = Math.floor((remainingTime / 1000) % 60);
  
   //Dymanically Typing The Time
-  hourEL.innerHTML = `${hrs}`
-  minuteEL.innerHTML = `${mins}`
-  secondEL.innerHTML = `${secs}`
+  // hourEL.innerHTML = `${hrs}`
+  // minuteEL.innerHTML = `${mins}`
+  // secondEL.innerHTML = `${secs}`
 
 
 
