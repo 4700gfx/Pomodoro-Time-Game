@@ -11,6 +11,7 @@ The Red Pallette is for an Active Session
 
 The closer that the timer get to the end the more that the color should transitition in the next set of colors within the pallette. 
 
+RED PALLETTE:
 Darkest Red: rgba(134, 9, 34)
 Darker Red rgba(229, 56, 71)
 Medium Red: rgba(241, 126, 132)
@@ -23,6 +24,7 @@ The Green Pallette is for an Active Break
 
 The closer that the timer get to the end the more that the color should transitition in the next set of colors within the pallette. 
 
+GREEN PALLETTE: 
 Darkest Green: rgba(49, 87, 44)
 Darker Green rgba(79, 119, 45)
 Medium Green: rgba(127, 149, 75)
@@ -30,7 +32,6 @@ Cream:rgba(241, 246, 182)
 
 
 Font Family: 
-
 font-family: 'Orbitron', sans-serif; [Main UI]
 font-family: 'VT323', monospace; [Timer]
 
@@ -49,3 +50,11 @@ The Most Viable Product will have to function properly enough to display differe
   -Add Stats Based on Session 
   -Set Long/Short Sessions and Breaks
 
+
+What The App Should Do:
+
+1. Have a Functional Timer for to Keep Count 
+2. Functional Buttons to Manipulate the Timer 
+3. To Do Section to Connected to the Timer 
+4. Status Change and Color Changes 
+5. Add Additional Functionality to Keep Score and Data  
