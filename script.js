@@ -65,9 +65,9 @@ const countdownTimer = function (){
   const secs = Math.floor((remainingTime / 1000) % 60);
  
   //Dymanically Typing The Time
-  // hourEL.innerHTML = `${hrs}`
-  // minuteEL.innerHTML = `${mins}`
-  // secondEL.innerHTML = `${secs}`
+  hourEL.innerHTML = `${hrs}`
+  minuteEL.innerHTML = `${mins}`
+  secondEL.innerHTML = `${secs}`
 
 
 
@@ -95,5 +95,5 @@ countdownTimer();
 
 
 
-playButton.addEventListener('click', startCountdown);
+// playButton.addEventListener('click', startCountdown);
 resetButton.addEventListener('click', clearInterval(countdownLoop));
