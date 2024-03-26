@@ -7,7 +7,7 @@ So I will be creating a Podomoro Timer Game that includes a To Do List as a part
 Color Pallette: 
 
 Red Pallette:
-The Red Pallette is for an Active Session 
+The Red Pallette is for an Active Work Session 
 
 The closer that the timer get to the end the more that the color should transitition in the next set of colors within the pallette. 
 
@@ -20,7 +20,7 @@ Lighter Red: rgba(236, 172, 177)
 
 
 Green Pallette:
-The Green Pallette is for an Active Break
+The Green Pallette is for an Active Break Session
 
 The closer that the timer get to the end the more that the color should transitition in the next set of colors within the pallette. 
 
@@ -43,9 +43,10 @@ The Most Viable Product will have to function properly enough to display differe
 - Timer [Create a Timer With Session Icons]
 - Top Buttons [Long Break, Short Break, Long Session, Short Session](Done)
 - Status Bar [Provide Status Based on Time](Done)
+- Score Display
 - Play and Stop Buttons 
 - To Do Section 
-  -Create Carousel
+  -Create Carousel 
   -Add Different Tasks with Different Levels of Task 
   -Add Stats Based on Session 
   -Set Long/Short Sessions and Breaks
@@ -54,7 +55,11 @@ The Most Viable Product will have to function properly enough to display differe
 What The App Should Do:
 
 1. Have a Functional Timer for to Keep Count 
-2. Functional Buttons to Manipulate the Timer 
+2. Functional Buttons to Manipulate the Timer [Play, Pause and Stop Buttons]
 3. To Do Section to Connected to the Timer 
 4. Status Change and Color Changes 
 5. Add Additional Functionality to Keep Score and Data  
+6. Stores the Sccore
+
+
+Overall this project is suppose to be a Pomodoro Timer mixed with the functionality of a To Do List paired with Game logic. Once the MVP has been created we will work to add additional functionality to the game to make it easier and fun to use. 
