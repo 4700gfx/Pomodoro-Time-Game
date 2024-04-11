@@ -75,7 +75,6 @@
 /* Time Display Stylesheet */
 
 
-.
 
 
 
@@ -86,35 +85,4 @@
 
 /* Tasks and Stats Stylesheet */
 
-.task-section{
-  font-family: 'VT323', monospace;
-  display: inline-block;
-  vertical-align: top;
-  margin: 15px 30%;
-  height: 50vh;
-}
-
-
-.task-display h1{
-  color: black;
-  text-align: center;
-  font-size: 35px;
-  margin-bottom: 25px;
-}
-
-.task-display {
-  background-color: #ddd;
-  height: 350px;
-  width: 800px;
-  border-radius: 10px;
-  padding: 20px 20px;
-}
-
-.task-display li{
-  font-family: 'VT323', monospace; 
-  font-size: 22px;
-  color: black;
-  list-style-type: none;
-  margin: 5px 15px 5px 25px;
-}
 
