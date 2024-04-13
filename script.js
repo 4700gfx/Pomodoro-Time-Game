@@ -25,7 +25,7 @@ const colon = document.querySelector(".colon");
 
 //Time Input & Elements
 const hr = 0;
-const min = 0;
+const min = 1;
 const sec = 47;
 
 const hours = hr * 36000000;
