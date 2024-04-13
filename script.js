@@ -1,11 +1,14 @@
 //Variables & Elements 
 let countdownInterval = null;
 const mainScore = document.getElementById('main-score');
-// const statusBar = document.querySelectorAll("status-bar");
 const hourEL = document.querySelector('.hour');
 const minuteEL = document.querySelector('.minute');
 const secondEL = document.querySelector('.second');
 
+let timerSection = document.getElementById("countdown");
+let outerCircle = document.getElementById("outer-circle");
+let colonColor = document.getElementById("colon-color");
+let statusBar = document.getElementById("status-bar");
 
 //Buttons Variables & Elements
 const playButton = document.querySelector('.play-button');
@@ -91,14 +94,18 @@ if(remainingTime < 0){
   <div>00</div>
   <div class="colon">:</div>
   <div>00</div>
-  <div class="colon">:</div>
+  <div class="colon" id="colon-color">:</div>
   <div>00</div>
 
   `;
 
   timer.style.color ="lightgrey";
-  document.querySelector("status-bar").textContent = 'Work Is Done';
-  statusBar.style.color = "green";
+  statusBar.innerHTML = "🎉 Work Is Done 🎉";
+  statusBar.style.color = "green"; 
+  document.body.style.backgroundColor = "rgba(79, 119, 45)"
+  timerSection.style.backgroundColor = "rgba(79, 119, 45)"
+  outerCircle.style.backgroundColor = "rgba(49, 87, 44)"
+  colonColor.style.backgroundColor = "green"
 }
 }
 

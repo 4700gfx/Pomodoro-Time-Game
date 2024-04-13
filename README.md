@@ -54,7 +54,7 @@ The Most Viable Product will have to function properly enough to display differe
 
 What The App Should Do:
 
-1. Have a Functional Timer for to Keep Count 
+1. Have a Functional Timer for to Keep Count ✅
 2. Functional Buttons to Manipulate the Timer [Play, Pause and Stop Buttons]
 3. To Do Section to Connected to the Timer 
 4. Status Change and Color Changes 

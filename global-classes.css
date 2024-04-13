@@ -44,6 +44,7 @@
   height: 35px;
   width: 500px;
   text-align: center;
+  
 
 }
 
@@ -75,7 +76,7 @@
 /* Time Display Stylesheet */
 
 .countdown-timer-section{
-  height: 70vh;
+  height: 55vh;
   width: 100%;
   background-color: rgba(134, 9, 34);
 }
