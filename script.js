@@ -25,8 +25,8 @@ const colon = document.querySelector(".colon");
 
 //Time Input & Elements
 const hr = 0;
-const min = 1;
-const sec = 47;
+const min = 0;
+const sec = 10;
 
 const hours = hr * 36000000;
 const minutes = min * 60000;
@@ -37,12 +37,51 @@ const startTime = Date.now();
 const futureTime = startTime + setTime;
 
 
-//Functions for Timer 
+//To Do List Variables & Elements
+const inputBox = document.getElementById("input-box");
+const listContainer = document.getElementById("list-container");
+let addTask = document.getElementById("add-task");
 
+
+//To Do List Functions 
+
+
+//Saving Data to Storage and Loading on Reload
+function saveData(){
+  localStorage.setItem("data", listContainer.innerHTML);
+}
+
+function showTask(){
+  listContainer.innerHTML = localStorage.getItem("data");
+}
+
+showTask();
+
+
+//Task Adding Function 
+function insertTask(){
+  if(inputBox.value === ''){
+    alert("Please Input a Task to Start The Game 📌");
+  } else {
+    let li = document.createElement("li");
+    li.innerHTML = inputBox.value;
+    listContainer.appendChild(li);
+    let span = document.createElement("span");
+    span.innerHTML ="\u00d7";
+    li.appendChild(span);
+  }
+  inputBox.value = '';
+  saveData();
+}
+
+
+
+
+//Functions for Timer 
 const timerLoop =setInterval(countdownTimer);
 
 function countdownTimer(){
-//Initalize Timer
+
 const currentTime = Date.now();
 const remainingTime = futureTime - currentTime;
 const angle = (remainingTime/setTime) * 360;
@@ -64,6 +103,7 @@ const hrs = Math.floor((remainingTime/(1000* 60 * 60)) % 24).toLocaleString('en-
 const mins = Math.floor((remainingTime/(1000 * 60)) % 24).toLocaleString('en-US', {minimumIntegerDigits:2, useGrouping: false});
 const secs = Math.floor((remainingTime/(1000)) % 60).toLocaleString('en-US', {minimumIntegerDigits:2, useGrouping: false});
 
+//Timer Text Field
 timer.innerHTML = `
 <div>${hrs}</div>
 <div class="colon">:</div>
@@ -78,7 +118,6 @@ if(remainingTime <=6000){
   semicircles[0].style.backgroundColor = "green";
   semicircles[1].style.backgroundColor = "green";
   timer.style.color="green";
-
 }
 
 
@@ -105,8 +144,29 @@ if(remainingTime < 0){
   document.body.style.backgroundColor = "rgba(79, 119, 45)"
   timerSection.style.backgroundColor = "rgba(79, 119, 45)"
   outerCircle.style.backgroundColor = "rgba(49, 87, 44)"
-  colonColor.style.backgroundColor = "green"
+  addTask.style.backgroundColor = "rgba(127, 149, 75)"
+
+  
 }
 }
 
 
+
+//Event Listener
+
+addTask.addEventListener("click", insertTask);
+inputBox.addEventListener('keypress', function (e) {
+  if (e.key === 'Enter') {
+    insertTask();
+  }
+});
+listContainer.addEventListener("click", function(e){
+  if(e.target.tagName === "LI"){
+    e.target.classList.toggle("checked-task");
+    saveData();
+  } 
+  else if (e.target.tagName === "SPAN"){
+    e.target.parentElement.remove();
+    saveData();
+  }
+}, false);

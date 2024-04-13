@@ -117,7 +117,6 @@
 .semicircle:nth-child(3){
   background-color: grey;;
   z-index: 4;
-  /* display: none; */
 }
 
 .outermost-circle{
@@ -126,7 +125,6 @@
   background-color: rgba(241, 126, 132);
   border-radius: 50%;
   z-index: 5;
-  /* display: none; */
 }
 
 
@@ -160,23 +158,169 @@
 
 }
 
-.timer .colon{
+.colon{
   background-color: transparent;
-  color: rgba(134, 9, 34);
+  color: #ddd;
   width: 10px;
-  margin-left: 0;
-  margin-right: 0;
-
   margin: 0 10px 0 10px;
 }
 
-.game-instructions{
-  margin: 20px 10px;
-  font-family: 'VT323', monospace; 
-  font-size: 22px;
-}
 
 
 /* Tasks and Stats Stylesheet */
 
+
+.game-instructions{
+  margin: 25px 10px;
+  font-family: 'VT323', monospace; 
+  font-size: 22px;
+}
+
+.game-instructions li{
+  list-style: none;
+  font-style: italic;
+}
+
+.taskbar-section{
+  margin: 10px;
+  font-family: 'VT323', monospace; 
+  font-size: 22px;
+  color: black;
+  min-height: 40vh;
+  width: 100%;
+  padding: 10px;
+
+}
+
+
+.taskbar-container{
+  min-height: 100vh;
+  width: 100%;
+
+}
+
+.taskbar h2{
+  margin-bottom: 20px;
+}
+
+.taskbar{
+  width: 100%;
+  max-width:  700px;
+  background-color: white;
+  margin: 10px auto 50px;
+  padding: 40px 30px 70px;
+  border-radius: 10px;
+}
+
+
+.taskbar-input-row{
+  background-color: #edeef0;
+  justify-content: space-between;
+  border-radius: 30px;
+  padding-left: 20px;
+  margin-bottom: 25px;
+  height: 35px;
+}
+
+
+input {
+
+  font-family : 'VT323', monospace !important;
+  font-size: 20px;
+}
+
+.taskbar ul li {
+  list-style-type: none;
+  font-size: 22px;
+  padding: 10px 8px 8px 50px;
+  user-select: none;
+  position: relative;
+}
+
+
+.taskbar ul li::before {
+ content: '';
+ position: absolute;
+ height: 28px;
+ width: 28px;
+ border-radius: 50%;
+ background-image: url(photos/check-box.png);
+ background-size: cover;
+ background-position: center;
+ top: 8px;
+ left: 8px;
+}
+
+ul li.checked-task{
+  color: #555;
+  text-decoration: line-through;
+}
+
+
+ul li.checked-task::before{
+  background-image: url(photos/check.png);
+}
+
+.taskbar ul li span {
+  position: absolute;
+  right: 0;
+  top: 5px;
+  height: 30px;
+  width: 30px;
+  font-size: 22px;
+  color: #555;
+  line-height: 40px;
+  text-align: center;
+  border-radius: 50%;
+  
+}
+
+
+.taskbar ul li span:hover{
+  background-color: #edeef0;
+
+}
+
+.taskbar-input-row::placeholder{
+  font-family: 'VT323', monospace; 
+}
+
+.taskbar-input-row button{
+  border: none;
+  outline: none;
+  padding: 16px 50px;
+  background-color: rgba(236, 172, 177);
+  font-family: 'VT323', monospace; 
+  font-size: 24px;
+  cursor: pointer;
+  border-radius: 40px;
+  height: 35px;
+  
+}
+
+
+input{
+  flex: 1;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  padding: 10px;  
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  font-family: 'VT323', monospace;
+  font-size: 15px; 
+}
+::-moz-placeholder { /* Firefox 19+ */
+  font-family: 'VT323', monospace;
+  font-size: 15px; 
+}
+:-ms-input-placeholder { /* IE 10+ */
+  font-family: 'VT323', monospace;
+  font-size: 15px; 
+}
+:-moz-placeholder { /* Firefox 18- */
+  font-family: 'VT323', monospace;
+  font-size: 15px; 
+}
 
