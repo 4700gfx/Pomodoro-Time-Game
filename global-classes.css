@@ -74,13 +74,116 @@
 
 /* Time Display Stylesheet */
 
+.countdown-timer-section{
+  height: 70vh;
+  width: 100%;
+  background-color: rgba(134, 9, 34);
+}
 
 
+.circle-container{
+  height: 400px;
+  width: 400px;
+  background-color: #ddd;
+  border-radius: 50%;
+  position: absolute;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.semicircle{
+  height: 100%;
+  width: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: right center;
+}
+
+/* Put Both of Them As Red or Green Start with 2*/
+
+.semicircle:nth-child(1){
+  background-color: red;
+  z-index: 2;
+}
+
+.semicircle:nth-child(2){
+  background-color: red;
+  z-index: 3;
+}
+
+/* Put As Opposite to Indicate Mode Change */
+.semicircle:nth-child(3){
+  background-color: #ddd;
+  z-index: 4;
+  /* display: none; */
+}
+
+.outermost-circle{
+  height: 390px;
+  width: 390px;
+  background-color: rgba(241, 126, 132);
+  border-radius: 50%;
+  z-index: 5;
+  /* display: none; */
+}
 
 
+/* Timer Section */
+
+.timer-container{
+  height: 200px;
+  width: 330px;
+  z-index: 6;
+
+}
+
+.timer{
+  height: 100px;
+  width: 400px;
+  z-index: 7;
+ 
+}
+
+.timer {
+  font-family: 'VT323', monospace; 
+  font-size: 50px;
+  font-weight: 100;
+  color: rgba(134, 9, 34);
+  height: 80px;
+  width: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 10px 0 10px;
+
+}
+
+.timer .colon{
+  background-color: transparent;
+  color: rgba(134, 9, 34);
+  width: 10px;
+  margin-left: 0;
+  margin-right: 0;
+
+  margin: 0 10px 0 10px;
+}
+
+/* .countdown-timer-section:hover .semicircle:nth-child(1){
+  transform: rotate(180deg);
+  transition: 1s linear;
+}
+
+.countdown-timer-section:hover .semicircle:nth-child(2){
+  transform: rotate(360deg);
+  transition: 2s linear;
+}
 
 
-
+.countdown-timer-section:hover .semicircle:nth-child(3){
+  opacity: 0;
+  transition: opacity 0s 1s;  
+} */
 
 
 /* Tasks and Stats Stylesheet */
