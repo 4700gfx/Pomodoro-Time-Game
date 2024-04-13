@@ -85,7 +85,7 @@
 .circle-container{
   height: 400px;
   width: 400px;
-  background-color: #ddd;
+  background-color: grey;
   border-radius: 50%;
   position: absolute;
   z-index: 1;
@@ -113,9 +113,9 @@
   z-index: 3;
 }
 
-/* Put As Opposite to Indicate Mode Change */
+/* Put As Opposite to Indicate Mode Change {Change with Container}*/
 .semicircle:nth-child(3){
-  background-color: #ddd;
+  background-color: grey;;
   z-index: 4;
   /* display: none; */
 }
@@ -170,21 +170,11 @@
   margin: 0 10px 0 10px;
 }
 
-/* .countdown-timer-section:hover .semicircle:nth-child(1){
-  transform: rotate(180deg);
-  transition: 1s linear;
+.game-instructions{
+  margin: 20px 10px;
+  font-family: 'VT323', monospace; 
+  font-size: 22px;
 }
-
-.countdown-timer-section:hover .semicircle:nth-child(2){
-  transform: rotate(360deg);
-  transition: 2s linear;
-}
-
-
-.countdown-timer-section:hover .semicircle:nth-child(3){
-  opacity: 0;
-  transition: opacity 0s 1s;  
-} */
 
 
 /* Tasks and Stats Stylesheet */
