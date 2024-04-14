@@ -248,10 +248,16 @@ function updateBreakTimer() {
 //Event Listener
 
 //WORK ON PLAY BUTTON EVENT
-playButton.addEventListener('click', function(e){
-  setInterval(updateWorkTimer);
+// playButton.addEventListener('click', function(e){
+//   setInterval(timerLoop);
   
-});
+// });
+
+// pauseButton.addEventListener('click', function(e){
+//   clearInterval(timerLoop);
+// });
+
+
 
 
 addTask.addEventListener("click", insertTask);
