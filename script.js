@@ -10,8 +10,13 @@ let outerCircle = document.getElementById("outer-circle");
 let colonColor = document.getElementById("colon-color");
 let statusBar = document.getElementById("status-bar");
 
+let score = document.getElementById("main-score");
+let timeElapsed = document.getElementById("time-elapsed");
+let sessionNumber = document.getElementById("session-number");
+
 //Buttons Variables & Elements
 const playButton = document.querySelector('.play-button');
+const pauseButton = document.querySelector('.pause-button');
 const resetButton = document.querySelector('.reset-button');
 const longSession = document.querySelector('.long-session');
 const shortSession = document.querySelector('.short-session');
@@ -25,7 +30,7 @@ const colon = document.querySelector(".colon");
 
 //Time Input & Elements
 const hr = 0;
-const min = 30;
+const min = 10;
 const sec = 0;
 
 const hours = hr * 3600000;
@@ -77,6 +82,7 @@ function insertTask(){
 
 
 
+
 //Functions for Timer 
 const timerLoop = setInterval(updateWorkTimer);
 
@@ -92,6 +98,19 @@ function workSessionDone() {
   addTask.style.backgroundColor = "rgba(127, 149, 75)"
 }
 
+
+//WORK ON WORK SESSION ACTIVE CSS FUNCTION
+function workSessionActive() {
+  timer.style.color = "rgba(134, 9, 34)";
+  statusBar.innerHTML = "🎉 Work Is Done 🎉";
+  statusBar.style.color = "red"; 
+  document.body.style.backgroundColor = "rgba(134, 9, 34)";
+  timerSection.style.backgroundColor = "rgba(236, 172, 177)";
+  outerCircle.style.backgroundColor = "red"; 
+  addTask.style.backgroundColor = "rgba(236, 172, 177)";
+}
+
+
 //Five Second Condtion Animation Function
 function fiveSecNotificationWork(){
   semicircles[0].style.backgroundColor = "green";
@@ -100,11 +119,10 @@ function fiveSecNotificationWork(){
 }
 
 
-// Function to update the timer display
+// Work Timer Function
 function updateWorkTimer() {
   let currentTime = Date.now();
-  let addedTime = 0; 
-  let remainingTime = (futureTime + addedTime) - currentTime;
+  let remainingTime = futureTime - currentTime;
   let angle = (remainingTime / setTime) * 360;
   
   
@@ -162,8 +180,7 @@ function updateWorkTimer() {
   
 }
 
-
-
+//WORK ON BREAK TIMER FUNCTION
 function updateBreakTimer() {
   let currentTime = Date.now();
   let addedTime = 0; 
@@ -230,6 +247,13 @@ function updateBreakTimer() {
 
 //Event Listener
 
+//WORK ON PLAY BUTTON EVENT
+playButton.addEventListener('click', function(e){
+  setInterval(updateWorkTimer);
+  
+});
+
+
 addTask.addEventListener("click", insertTask);
 inputBox.addEventListener('keypress', function (e) {
   if (e.key === 'Enter') {
@@ -248,6 +272,9 @@ listContainer.addEventListener("click", function(e){
   }
 }, false);
 
+
+
+//Longer Sesion Button Event
 longSession.addEventListener("click", function(e){
   e.target.classList.toggle("hit-button");
   if(longSession.classList.contains("hit-button")){
@@ -256,14 +283,34 @@ longSession.addEventListener("click", function(e){
   }
 })
 
+
+//Shoter Session Button Event 
 shortSession.addEventListener("click", function(e){
   e.target.classList.toggle("hit-button");
-
-  //Checks if Hit Button is Clicked and then Removes It
+  
   if(shortSession.classList.contains("hit-button")){
     futureTime -= 300000;
     shortSession.classList.toggle("hit-button");
+  } else if (remainingTime > 0){
+    clearInterval(timerLoop);
+    semicircles[0].style.display = 'none';
+    semicircles[1].style.display = 'none';
+    semicircles[2].style.display = 'none';
+    
+    timer.innerHTML =
+    `<div>00</div>
+    <div class="colon">:</div>
+    <div>00</div>
+    <div class="colon" id="colon-color">:</div>
+    <div>00</div>`;
+    
+    workSessionDone();
   }
+  
+  
+  
 })
+
+
 
 
