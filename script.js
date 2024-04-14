@@ -14,7 +14,7 @@ let statusBar = document.getElementById("status-bar");
 const playButton = document.querySelector('.play-button');
 const resetButton = document.querySelector('.reset-button');
 const longSession = document.querySelector('.long-session');
-const shortSession = document.getElementById('.short-session');
+const shortSession = document.querySelector('.short-session');
 const longBreak = document.querySelector('.long-break');
 const shortBreak = document.querySelector('.short-break');
 
@@ -25,8 +25,8 @@ const colon = document.querySelector(".colon");
 
 //Time Input & Elements
 const hr = 0;
-const min = 0;
-const sec = 10;
+const min = 30;
+const sec = 0;
 
 const hours = hr * 3600000;
 const minutes = min * 60000;
@@ -64,7 +64,7 @@ function insertTask(){
     alert("Please Input a Task to Start The Game 📌");
   } else {
     let li = document.createElement("li");
-    li.innerHTML = inputBox.value;
+    li.innerHTML = inputBox.value + " " + "(+300)";
     listContainer.appendChild(li);
     let span = document.createElement("span");
     span.innerHTML ="\u00d7";
@@ -78,7 +78,7 @@ function insertTask(){
 
 
 //Functions for Timer 
-const timerLoop = setInterval(updateTimer);
+const timerLoop = setInterval(updateWorkTimer);
 
 
 //Work Session Done Animation Functions
@@ -101,17 +101,13 @@ function fiveSecNotificationWork(){
 
 
 // Function to update the timer display
-function updateTimer() {
-  const currentTime = Date.now();
-  let remainingTime = futureTime - currentTime;
-  const angle = (remainingTime / setTime) * 360;
+function updateWorkTimer() {
+  let currentTime = Date.now();
+  let addedTime = 0; 
+  let remainingTime = (futureTime + addedTime) - currentTime;
+  let angle = (remainingTime / setTime) * 360;
   
   
-  if(longSession.classList.contains("hit-button")){
-    remainingTime += 60000;
-    longSession.classList.toggle("hit-button");
-    updateTimer();
-  }
   
   // Progress Indicator
   if (angle > 180) {
@@ -141,8 +137,6 @@ function updateTimer() {
   
   
   
-  
-  
   // 5-Sec Condition
   if (remainingTime <= 6000) {
     fiveSecNotificationWork();
@@ -168,7 +162,69 @@ function updateTimer() {
   
 }
 
-// Button event listener to add 60 seconds
+
+
+function updateBreakTimer() {
+  let currentTime = Date.now();
+  let addedTime = 0; 
+  let remainingTime = (futureTime + addedTime) - currentTime;
+  let angle = (remainingTime / setTime) * 360;
+  
+  
+  
+  // Progress Indicator
+  if (angle > 180) {
+    semicircles[2].style.display = 'none';
+    semicircles[0].style.transform = 'rotate(180deg)';
+    semicircles[1].style.transform = `rotate(${angle}deg)`;
+  } else {
+    semicircles[2].style.display = 'block';
+    semicircles[0].style.transform = `rotate(${angle}deg)`;
+    semicircles[1].style.transform = `rotate(${angle}deg)`;
+  }
+  
+  
+  // Timer
+  const hrs = Math.floor((remainingTime / (1000 * 60 * 60)) % 24).toLocaleString('en-US', { minimumIntegerDigits: 2, useGrouping: false });
+  const mins = Math.floor((remainingTime / (1000 * 60)) % 60).toLocaleString('en-US', { minimumIntegerDigits: 2, useGrouping: false });
+  const secs = Math.floor((remainingTime / 1000) % 60).toLocaleString('en-US', { minimumIntegerDigits: 2, useGrouping: false });
+  
+  // Timer Text Field
+  timer.innerHTML = `
+  <div>${hrs}</div>
+  <div class="colon">:</div>
+  <div>${mins}</div>
+  <div class="colon">:</div>
+  <div>${secs}</div>
+  `;
+  
+  
+  
+  // 5-Sec Condition
+  if (remainingTime <= 6000) {
+    fiveSecNotificationBreak();
+  }
+  
+  // End Timer
+  if (remainingTime < 0) {
+    clearInterval(timerLoop);
+    semicircles[0].style.display = 'none';
+    semicircles[1].style.display = 'none';
+    semicircles[2].style.display = 'none';
+    
+    timer.innerHTML =
+    `<div>00</div>
+    <div class="colon">:</div>
+    <div>00</div>
+    <div class="colon" id="colon-color">:</div>
+    <div>00</div>`;
+    
+    breakSessionDone();
+  }
+  
+  
+}
+
 
 
 
@@ -180,6 +236,7 @@ inputBox.addEventListener('keypress', function (e) {
     insertTask();
   }
 });
+
 listContainer.addEventListener("click", function(e){
   if(e.target.tagName === "LI"){
     e.target.classList.toggle("checked-task");
@@ -190,4 +247,23 @@ listContainer.addEventListener("click", function(e){
     saveData();
   }
 }, false);
+
+longSession.addEventListener("click", function(e){
+  e.target.classList.toggle("hit-button");
+  if(longSession.classList.contains("hit-button")){
+    futureTime += 900000;
+    longSession.classList.toggle("hit-button");
+  }
+})
+
+shortSession.addEventListener("click", function(e){
+  e.target.classList.toggle("hit-button");
+
+  //Checks if Hit Button is Clicked and then Removes It
+  if(shortSession.classList.contains("hit-button")){
+    futureTime -= 300000;
+    shortSession.classList.toggle("hit-button");
+  }
+})
+
 

@@ -114,6 +114,7 @@
 }
 
 /* Put As Opposite to Indicate Mode Change {Change with Container}*/
+
 .semicircle:nth-child(3){
   background-color: grey;;
   z-index: 4;
@@ -128,7 +129,6 @@
 }
 
 
-/* Timer Section */
 
 .timer-container{
   height: 200px;
@@ -291,12 +291,20 @@ ul li.checked-task::before{
   padding: 16px 50px;
   background-color: rgba(236, 172, 177);
   font-family: 'VT323', monospace; 
-  font-size: 24px;
+  font-size: 20px;
   cursor: pointer;
-  border-radius: 40px;
+  border-radius: 5px;
   height: 35px;
+  width: 45px;
+  margin: 2px;
   
 }
+
+
+.taskbar-input-row{
+  border-radius: 5px;
+}
+
 
 
 input{
@@ -305,6 +313,8 @@ input{
   outline: none;
   background-color: transparent;
   padding: 10px;  
+  
+
 }
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
