@@ -99,7 +99,8 @@ listContainer.addEventListener("click", function(e){
 resetButton.addEventListener("click",(resetTime = () => {
   pauseTimer();
   switch(active){
-    case "long-break": minCount = 14;
+    case "long-break": 
+    minCount = 14;
     break;
     case "short-break": minCount = 4;
     break;
@@ -109,6 +110,16 @@ resetButton.addEventListener("click",(resetTime = () => {
   }
   count = 59;
   time.textContent = `${minCount + 1}:00`
+  focusButton.classList.add("btn-focus")
+  longBreakButton.classList.remove("btn-focus")
+  shortBreakButton.classList.remove("btn-focus")
+  statusBar.textContent = "💼 Keep On Working 💼";
+  statusBar.style.color = "rgba(134, 9, 34)";
+  longBreakButton.style.color = "black";
+  shortBreakButton.style.color = "black";
+  time.style.color = "rgba(134, 9, 34)";
+  document.body.style.backgroundColor = "rgba(134, 9, 34)";
+
   })
 );
 
@@ -118,7 +129,15 @@ focusButton.addEventListener("click", () => {
     pauseTimer();
     count = 59; 
     minCount = 24;
-    time.textContent = `${minCount + 1}:00`
+    time.textContent = `${minCount + 1}:00`;
+
+
+    statusBar.textContent = "💼 Keep On Working 💼";
+    statusBar.style.color = "rgba(134, 9, 34)";
+    longBreakButton.style.color = "black";
+    shortBreakButton.style.color = "black";
+    time.style.color = "rgba(134, 9, 34)";
+    document.body.style.backgroundColor = "rgba(134, 9, 34)";
     
 });
 
@@ -129,6 +148,14 @@ shortBreakButton.addEventListener("click", () => {
   minCount = 4; 
   count = 59; 
   time.textContent = `${appendZero(minCount + 1)}:00`
+  document.body.style.backgroundColor = "green";
+  time.style.color = "green";
+  statusBar.textContent = "🚨 Time For A 5 Minute Break...🚨";
+  statusBar.style.color = "green";
+  shortBreakButton.style.color = "green";
+  longBreakButton.style.color = "black";
+  longBreakButton.classList.remove("btn-focus")
+  focusButton.classList.remove("btn-focus")
 
 });
 
@@ -136,9 +163,18 @@ longBreakButton.addEventListener("click", () => {
   removeFocus();
   longBreakButton.classList.add("btn-focus")
   pauseTimer();
-  minCount = 4; 
+  minCount = 14; 
   count = 59; 
   time.textContent = `${minCount + 1}:00`
+  document.body.style.backgroundColor = "green";
+  time.style.color = "green";
+  statusBar.textContent = "🚨 Time For A 15 Minute Break...🚨";
+  statusBar.style.color = "green";
+  longBreakButton.style.color = "green";
+  shortBreakButton.classList.remove("btn-focus")
+  focusButton.classList.remove("btn-focus")
+  longBreakButton.classList.add("btn-focus")
+
 
 });
 
@@ -165,6 +201,7 @@ playButton.addEventListener("click", () => {
   }
 
 });
+
 
 
 pauseButton.addEventListener("click",(pauseTimer = () =>{
