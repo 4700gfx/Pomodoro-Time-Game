@@ -23,44 +23,31 @@
       </ul>
     </nav>
     <div id="status-bar" class="status-bar"> 💼 Keep On Working 💼 </div>
-    <button class="reset-button">Reset Button</button>
+    <button id="reset">Reset Button</button>
   </header>
 
-  <!-- Button Section -->
-
-  <section class="button-console">
-
-    <button class="long-session" id="addSecondsButton">Long Session</button>
-    <button class="short-session" id="short-session">Shorter Session</button>
-    <button class="long-break">Long Break</button>
-    <button class="short-break">Short Break</button>
-
-  </section>
 
   <!-- Timer Section -->
 
-  <section class="countdown-timer-section center" id="countdown">
-    <div class="circle-container center">
-      <div class="semicircle"></div>
-      <div class="semicircle"></div>
-      <div class="semicircle"></div>
-      <div class="outermost-circle" id="outer-circle"></div>
+<section class="pomodoro-section">
+  <div class="timer-container center">
+
+    <h1>Pomodoro</h1>
+    <div class="panel center">
+      <button id="focus" class="btn btn-timer btn-focus">Work</button>
+      <button id="short-break" class="btn">Short Break</button>
+      <button id="long-break" class="btn">Long Break</button>
+
     </div>
 
-    <!-- Timer Label -->
-    <div class="timer-container center">
-      <div class="timer center"></div>
-    </div>
-
-
-
-  </section>
-
-
+    <span id="time"></span>
+    
+   </div>
+</section>
   
-  <div class="button-console">
-    <button class="play-button">Play</button>
-    <button class="pause-button">Pause</button>
+  <div class="button-console center">
+    <button id="play-button" class="show-button">⏯️</button>
+    <button id="pause-button" class="hide-button">⏸️</button>
   </div>
 
 
@@ -86,19 +73,18 @@
   </section>
 
   <section class="taskbar-section center">
-    
-
 
     <div class="taskbar">
       <h2 class="center">To Do List</h2>
 
       <div class="taskbar-input-row center">
         <input type="text" id="input-box" class="input-box" placeholder="Add A Task ➕">
-        <button class="add-task-button center" id="add-task">Lo Priority</button>
-        <button class="high-priority-task center" id="high-priority-task">Hi Priority</button>
-
+        <div>
+          <button class="add-task-button center" id="add-task">Lo Priority</button>
+          <button class="high-priority-task center" id="high-priority-task">Hi Priority</button>
+        </div>
       </div>
-
+      
       <ul id="list-container">
       </ul>
 
@@ -110,5 +96,6 @@
   </section>
 
   <script src="script.js"></script>
+  <script src="timer.js"></script>
 </body>
 </html>

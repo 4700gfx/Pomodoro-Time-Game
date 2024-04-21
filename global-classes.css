@@ -55,7 +55,7 @@
 .button-console{
   text-align: center;
   font-style: bold;
-  margin: 25px 0px;
+  margin: 15px 0px;
 
 }
 
@@ -75,95 +75,82 @@
 
 /* Time Display Stylesheet */
 
-.countdown-timer-section{
-  height: 55vh;
-  width: 100%;
-  background-color: rgba(134, 9, 34);
+.timer-container {
+  height: 60vh;
+  flex-direction: column;
 }
 
-
-.circle-container{
-  height: 400px;
-  width: 400px;
-  background-color: grey;
-  border-radius: 50%;
-  position: absolute;
-  z-index: 1;
-  overflow: hidden;
-}
-
-.semicircle{
-  height: 100%;
-  width: 50%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  transform-origin: right center;
-}
-
-/* Put Both of Them As Red or Green Start with 2*/
-
-.semicircle:nth-child(1){
-  background-color: red;
-  z-index: 2;
-}
-
-.semicircle:nth-child(2){
-  background-color: red;
-  z-index: 3;
-}
-
-/* Put As Opposite to Indicate Mode Change {Change with Container}*/
-
-.semicircle:nth-child(3){
-  background-color: grey;;
-  z-index: 4;
-}
-
-.outermost-circle{
-  height: 390px;
-  width: 390px;
-  background-color: rgba(241, 126, 132);
-  border-radius: 50%;
-  z-index: 5;
-}
-
-
-
-.timer-container{
-  height: 200px;
-  width: 330px;
-  z-index: 6;
-
-}
-
-.timer{
-  height: 100px;
-  width: 400px;
-  z-index: 7;
- 
-}
-
-.timer {
+.timer-container h1{
   font-family: 'VT323', monospace; 
-  font-size: 50px;
-  font-weight: 100;
-  color: rgba(134, 9, 34);
-  height: 80px;
-  width: 80px;
+  font-size: 35px;
+  font-weight: 800;
+}
+
+.panel button {
+  text-align: center;
+  font-family: 'VT323', monospace; 
+  font-size: 20px;
+  border: none;
+  border-radius: 10px;
+  background-color: rgba(236, 172, 177, 0.5);
+  padding: 10px;
+  height: 35px;
+  width: 150px;
+  margin: 30px 10px;
+
+}
+
+.panel p{
+  text-align: center;
+  padding: 10px 10px;
+  opacity: .8;
+  transition: 1s ease-in;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.panel p.active{
+  opacity: 1;
+  color: black;
+}
+
+#time{
+  font-family: 'VT323', monospace; 
+  font-size: 75px;
   display: flex;
-  justify-content: center;
   align-items: center;
-  margin: 0 10px 0 10px;
+  justify-content: center;
+  color: rgba(134, 9, 34);
 
 }
 
-.colon{
-  background-color: transparent;
-  color: #ddd;
-  width: 10px;
-  margin: 0 10px 0 10px;
+.show-button{
+  display: block;
 }
+
+.hide-button{
+  display: none;
+}
+
+
+.btn-focus{
+  color: rgba(134, 9, 34);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -220,6 +207,8 @@
   padding-left: 20px;
   margin-bottom: 25px;
   height: 35px;
+  width: 90%;
+
 }
 
 
