@@ -20,10 +20,33 @@ let minCount = 24;
 time.textContent = `${minCount + 1}:00`
 
 
+
 //To Do List Variables & Elements
-const inputBox = document.getElementById("input-box");
+const inputBox = document.getElementById("taskbar-input");
 const listContainer = document.getElementById("list-container");
-let addTask = document.getElementById("add-task");
+let lowPriorityTaskButton = document.getElementById("low-priority");
+let medPriorityTaskButton = document.getElementById("med-priority");
+let highPriorityTaskButton = document.getElementById("high-priority");
+
+
+//Score and Game Logic;
+let points = [];
+let score = 0;
+let lowValue = 0;
+let midValue = 0;
+let highValue = 0;
+
+
+//Game Logic Functions
+
+
+
+
+
+
+
+
+
 
 
 //To Do List Functions 
@@ -41,21 +64,6 @@ showTask();
 
 
 //Task Adding Function 
-function insertTask(){
-  if(inputBox.value === ''){
-    alert("Please Input a Task to Start The Game 📌");
-  } else {
-    let li = document.createElement("li");
-    li.innerHTML = inputBox.value + " " + "(+300)";
-    listContainer.appendChild(li);
-    let span = document.createElement("span");
-    span.innerHTML ="\u00d7";
-    li.appendChild(span);
-  }
-  inputBox.value = '';
-  saveData();
-}
-
 function insertLowTask(){
   if(inputBox.value === ''){
     alert("Please Input a Task to Start The Game 📌");
@@ -66,6 +74,23 @@ function insertLowTask(){
     let span = document.createElement("span");
     span.innerHTML ="\u00d7";
     li.appendChild(span);
+    lowValue = 100;
+  }
+  inputBox.value = '';
+  saveData();
+}
+
+function insertMedTask(){
+  if(inputBox.value === ''){
+    alert("Please Input a Task to Start The Game 📌");
+  } else {
+    let li = document.createElement("li");
+    li.innerHTML = inputBox.value + " " + "(+300)";
+    listContainer.appendChild(li);
+    let span = document.createElement("span");
+    span.innerHTML ="\u00d7";
+    li.appendChild(span);
+    medValue = 300;
   }
   inputBox.value = '';
   saveData();
@@ -77,15 +102,19 @@ function insertHighTask(){
     alert("Please Input a Task to Start The Game 📌");
   } else {
     let li = document.createElement("li");
-    li.innerHTML = inputBox.value + " " + "(+300)";
+    li.innerHTML = inputBox.value + " " + "(+500)";
     listContainer.appendChild(li);
     let span = document.createElement("span");
     span.innerHTML ="\u00d7";
     li.appendChild(span);
+    highValue = 500;
   }
   inputBox.value = '';
   saveData();
 }
+
+
+
 
 //Functions for Timer 
 
@@ -105,7 +134,9 @@ function removeFocus(){
 
 
 //Event Listener Functions
-addTask.addEventListener("click", insertTask);
+lowPriorityTaskButton.addEventListener("click", insertLowTask);
+medPriorityTaskButton.addEventListener("click", insertMedTask);
+highPriorityTaskButton.addEventListener("click", insertHighTask);
 
 
 listContainer.addEventListener("click", function(e){
@@ -118,6 +149,19 @@ listContainer.addEventListener("click", function(e){
     saveData();
   }
 }, false);
+
+listContainer.addEventListener("click", function(e) {
+  if(e.target.classList.contains("checked-task")&& highValue === 500 ){
+    points.push(highValue);
+    console.log(points);
+  } else if (e.target.classList.contains("checked-task")&& midValue === 300){
+    points.push(midValue);
+    console.log(points);
+  } else if (e.target.classList.contains("checked-task")&& lowValue === 100){
+    points.push(lowValue);
+    console.log(points);    
+  }
+});
 
 
 
@@ -240,4 +284,3 @@ pauseButton.addEventListener("click",(pauseTimer = () =>{
   pauseButton.classList.add("hide-button")
 
 }))
-
