@@ -41,7 +41,7 @@ Functions:
 The Most Viable Product will have to function properly enough to display different game and program logic for the app. 
 
 - Timer [Create a Timer With Session Icons]
-- Top Buttons [Long Break, Short Break, Long Session, Short Session](Done)
+- Top Buttons [Long Break, Short Break](Done)
 - Status Bar [Provide Status Based on Time](Done)
 - Score Display
 - Play and Stop Buttons 
@@ -55,7 +55,7 @@ The Most Viable Product will have to function properly enough to display differe
 What The App Should Do:
 
 1. Have a Functional Timer for to Keep Count ✅
-2. Functional Buttons to Manipulate the Timer [Play, Pause and Stop Buttons]
+2. Functional Buttons to Manipulate the Timer [Play, Pause and Stop Buttons] ✅
 3. To Do Section to Connected to the Timer 
 4. Status Change and Color Changes 
 5. Add Additional Functionality to Keep Score and Data  

@@ -56,7 +56,36 @@ function insertTask(){
   saveData();
 }
 
+function insertLowTask(){
+  if(inputBox.value === ''){
+    alert("Please Input a Task to Start The Game 📌");
+  } else {
+    let li = document.createElement("li");
+    li.innerHTML = inputBox.value + " " + "(+100)";
+    listContainer.appendChild(li);
+    let span = document.createElement("span");
+    span.innerHTML ="\u00d7";
+    li.appendChild(span);
+  }
+  inputBox.value = '';
+  saveData();
+}
 
+
+function insertHighTask(){
+  if(inputBox.value === ''){
+    alert("Please Input a Task to Start The Game 📌");
+  } else {
+    let li = document.createElement("li");
+    li.innerHTML = inputBox.value + " " + "(+300)";
+    listContainer.appendChild(li);
+    let span = document.createElement("span");
+    span.innerHTML ="\u00d7";
+    li.appendChild(span);
+  }
+  inputBox.value = '';
+  saveData();
+}
 
 //Functions for Timer 
 
@@ -77,11 +106,7 @@ function removeFocus(){
 
 //Event Listener Functions
 addTask.addEventListener("click", insertTask);
-inputBox.addEventListener('keypress', function (e) {
-  if (e.key === 'Enter') {
-    insertTask();
-  }
-});
+
 
 listContainer.addEventListener("click", function(e){
   if(e.target.tagName === "LI"){
@@ -128,7 +153,7 @@ focusButton.addEventListener("click", () => {
     focusButton.classList.add("btn-focus")
     pauseTimer();
     count = 59; 
-    minCount = 24;
+    minCount = 44;
     time.textContent = `${minCount + 1}:00`;
 
 
@@ -200,6 +225,8 @@ playButton.addEventListener("click", () => {
     }, 1000)
   }
 
+
+
 });
 
 
@@ -213,3 +240,4 @@ pauseButton.addEventListener("click",(pauseTimer = () =>{
   pauseButton.classList.add("hide-button")
 
 }))
+
