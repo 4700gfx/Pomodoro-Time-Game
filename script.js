@@ -9,6 +9,7 @@ let resetButton = document.getElementById("reset");
 const playButton = document.getElementById("play-button");
 const pauseButton = document.getElementById("pause-button");
 let statusBar = document.getElementById("status-bar");
+let mainScore = document.getElementById("main-score");
 
 //Timer Variables & Elements
 let active = "focus";
@@ -16,7 +17,7 @@ let time = document.getElementById("time");
 let set;
 let count = 59;
 let pause = true;
-let minCount = 24;
+let minCount = 0;
 time.textContent = `${minCount + 1}:00`
 
 
@@ -35,16 +36,33 @@ let score = 0;
 let lowValue = 0;
 let midValue = 0;
 let highValue = 0;
-
+const SCORE_HISTORY_KEY = 'game_score_history';
+let scoreHistory = JSON.parse(localStorage.getItem(SCORE_HISTORY_KEY)) || [];
 
 //Game Logic Functions
 
 function calculateScore() {
   // Use 'reduce()' to sum all the elements in the 'points' array
   score = points.reduce((total, point) => total + point, 0);
+
+  // Retrieve the current score history from localStorage
+  let scoreHistory = JSON.parse(localStorage.getItem(SCORE_HISTORY_KEY)) || [];
+
+  // Add the current score to the score history
+  scoreHistory.push(score);
+
+
 }
 
+// Function to retrieve the score history from localStorage
+function getScoreHistory() {
+  let scoreHistory = JSON.parse(localStorage.getItem(SCORE_HISTORY_KEY)) || [];
+  return scoreHistory;
+}
 
+function clearScoreHistory() {
+  localStorage.removeItem(SCORE_HISTORY_KEY);
+}
 
 
 
@@ -271,10 +289,26 @@ playButton.addEventListener("click", () => {
           count = 60;
         }else{
           clearInterval(set);
+          document.body.style.backgroundColor = "green";
+          statusBar.textContent = "🚨 Time For A 15 Minute Break...🚨";
+          statusBar.style.color = "green";
+          alert(`Your Score is ${score}👾! Please Choose Long or Short Break ⏸️`);
+          
+          // Retrieve the current score history from localStorage
+          let scoreHistory = JSON.parse(localStorage.getItem(SCORE_HISTORY_KEY)) || [];
+          
+          // Store the updated score history back in localStorage
+          scoreHistory.push(score);
+          localStorage.setItem(SCORE_HISTORY_KEY, JSON.stringify(scoreHistory));
+          console.log("Score calculated:", score);
+          console.log("Updated score history:", scoreHistory);
+          
+
         }
       }
     }, 1000)
   }
+
 
 
 
