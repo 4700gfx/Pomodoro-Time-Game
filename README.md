@@ -56,10 +56,10 @@ What The App Should Do:
 
 1. Have a Functional Timer for to Keep Count ✅
 2. Functional Buttons to Manipulate the Timer [Play, Pause and Stop Buttons] ✅
-3. To Do Section to Connected to the Timer 
-4. Status Change and Color Changes 
-5. Add Additional Functionality to Keep Score and Data  
-6. Stores the Sccore
+3. To Do Section to Connected to the Timer
+4. Status Change and Color Changes ✅
+5. Add Additional Functionality to Keep Score and Data✅
+
 
 
 Overall this project is suppose to be a Pomodoro Timer mixed with the functionality of a To Do List paired with Game logic. Once the MVP has been created we will work to add additional functionality to the game to make it easier and fun to use. 
