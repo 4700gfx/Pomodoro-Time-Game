@@ -39,7 +39,10 @@ let highValue = 0;
 
 //Game Logic Functions
 
-
+function calculateScore() {
+  // Use 'reduce()' to sum all the elements in the 'points' array
+  score = points.reduce((total, point) => total + point, 0);
+}
 
 
 
@@ -64,17 +67,17 @@ showTask();
 
 
 //Task Adding Function 
-function insertLowTask(){
-  if(inputBox.value === ''){
+function insertLowTask() {
+  if (inputBox.value === '') {
     alert("Please Input a Task to Start The Game 📌");
   } else {
     let li = document.createElement("li");
     li.innerHTML = inputBox.value + " " + "(+100)";
+    li.setAttribute("data-points", "100"); // Set the point value here
     listContainer.appendChild(li);
     let span = document.createElement("span");
-    span.innerHTML ="\u00d7";
+    span.innerHTML = "\u00d7";
     li.appendChild(span);
-    lowValue = 100;
   }
   inputBox.value = '';
   saveData();
@@ -86,11 +89,12 @@ function insertMedTask(){
   } else {
     let li = document.createElement("li");
     li.innerHTML = inputBox.value + " " + "(+300)";
+    li.setAttribute("data-points", "300"); // Set the point value here
     listContainer.appendChild(li);
     let span = document.createElement("span");
     span.innerHTML ="\u00d7";
     li.appendChild(span);
-    medValue = 300;
+    midValue = 300;
   }
   inputBox.value = '';
   saveData();
@@ -103,6 +107,7 @@ function insertHighTask(){
   } else {
     let li = document.createElement("li");
     li.innerHTML = inputBox.value + " " + "(+500)";
+    li.setAttribute("data-points", "500"); // Set the point value here
     listContainer.appendChild(li);
     let span = document.createElement("span");
     span.innerHTML ="\u00d7";
@@ -148,20 +153,20 @@ listContainer.addEventListener("click", function(e){
     e.target.parentElement.remove();
     saveData();
   }
+
+
+  if (e.target.classList.contains("checked-task")) {
+    let pointValue = parseInt(e.target.getAttribute("data-points")); // Get the point value
+    points.push(pointValue);
+    console.log(points);
+  }
+    // Call 'calculateScore' to update the 'score' after a task is checked
+    calculateScore();
+    console.log("Score:", score);
 }, false);
 
-listContainer.addEventListener("click", function(e) {
-  if(e.target.classList.contains("checked-task")&& highValue === 500 ){
-    points.push(highValue);
-    console.log(points);
-  } else if (e.target.classList.contains("checked-task")&& midValue === 300){
-    points.push(midValue);
-    console.log(points);
-  } else if (e.target.classList.contains("checked-task")&& lowValue === 100){
-    points.push(lowValue);
-    console.log(points);    
-  }
-});
+
+
 
 
 
@@ -177,6 +182,8 @@ resetButton.addEventListener("click",(resetTime = () => {
     minCount = 24;
     break;
   }
+  points = [];
+  score = 0;
   count = 59;
   time.textContent = `${minCount + 1}:00`
   focusButton.classList.add("btn-focus")
